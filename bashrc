@@ -12,3 +12,6 @@ alias du='du -ch --max-depth=1'
 if [ -e $HOME/.bashrc_os ]; then
     source $HOME/.bashrc_os
 fi
+if [ -e $HOME/.bashrc_machine ]; then
+    source $HOME/.bashrc_machine
+fi

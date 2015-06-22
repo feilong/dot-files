@@ -2,27 +2,31 @@
 
 dir=$(pwd)
 cd $HOME
-if [ -f .bashrc ]; then
-    mv .bashrc .bashrc_backup
-elif [ -h .bashrc ]; then
-    rm .bashrc
-fi
-ln -s $dir/bashrc .bashrc
 
-if [ -f .bash_profile ]; then
-    mv .bash_profile .bash_profile_backup
-elif [ -h .bash_profile ]; then
-    rm .bash_profile
-fi
-ln -s $dir/bash_profile .bash_profile
+function pipeline() {
+    # parameters
+    local source=${1}
+    if [ -n "${2}" ]; then
+	local target=${2}
+    else
+	local target=.${1}
+    fi
 
-if [ -f .bashrc_os ]; then
-    mv .bashrc_os .bashrc_os_backup
-elif [ -h .bashrc_os ]; then
-    rm .bashrc_os
-fi
+    # clean up old file
+    if [ -f $target ]; then
+	mv $target ${target}_backup
+    elif [ -h $target ]; then
+	rm $target
+    fi
+    ln -s $dir/$source $target
+}
+
+pipeline bash_profile
+pipeline bashrc
 if [ "$(uname)" == "Darwin" ]; then
-    ln -s $dir/bashrc_mac .bashrc_os
+    pipeline bashrc_mac .bashrc_os
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    ln -s $dir/bashrc_linux .bashrc_os
+    pipeline bashrc_linux .bashrc_os
 fi
+touch bashrc_machine
+pipeline bashrc_machine
