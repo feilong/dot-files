@@ -1,0 +1,4 @@
+# -*- mode: sh -*-
+
+alias ll="ls -lh --color"
+alias ls="ls --color"
