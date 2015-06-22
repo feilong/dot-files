@@ -1,0 +1,8 @@
+# -*- mode: sh -*-
+
+# make ls colorful
+# see: http://stackoverflow.com/questions/1550288/mac-os-x-terminal-colors
+# see: http://geoff.greer.fm/lscolors/
+export CLICOLOR=1
+export LSCOLORS=exgxfxdxcxegedabagacad
+alias ll="ls -lh"
