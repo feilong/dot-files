@@ -8,3 +8,8 @@ alias ll="ls -lh"
 # custom prompt (PS1)
 # see: http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html
 PS1="\e[36m===  无坚不摧  所向披靡  英明神武  一统江湖  ===\e[0m\n[\W] \$> "
+
+# helpful aliases
+alias ..='cd ..'
+alias ...='cd ..;cd ..'
+alias du='du -ch --max-depth=1'
