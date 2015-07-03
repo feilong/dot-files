@@ -2,3 +2,5 @@
 
 alias ll="ls -lh --color"
 alias ls="ls --color"
+
+alias du='du -ch --max-depth=1'
