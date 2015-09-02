@@ -28,5 +28,5 @@ if [ "$(uname)" == "Darwin" ]; then
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     pipeline bashrc_linux .bashrc_os
 fi
-touch bashrc_machine
+touch $dir/bashrc_machine
 pipeline bashrc_machine
